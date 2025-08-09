@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Currículum - Ing. en Sistemas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background: #0f0c29;
+            border-bottom: 2px solid #ff00c8;
+            padding: 2rem 1rem;
+            text-align: center;
+            text-shadow: 0 0 5px #ff00c8, 0 0 10px #ff00c8, 0 0 20px #ff00c8;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5rem;
+                color: #ff00c8;
+            }
+
+            header p {
+                margin: 0.3rem 0 0;
+                font-weight: 500;
+                color: #00fff7;
+                text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+            }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            background: #121018dd;
+            margin: 2rem auto;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #00fff7cc, inset 0 0 10px #ff00c8cc;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .profile-pic {
+            flex: 1 1 250px;
+            max-width: 300px;
+            border: 2px solid #ff00c8;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+            .profile-pic:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px #ff00c8, 0 0 40px #ff00c8;
+            }
+
+            .profile-pic img {
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+                filter: drop-shadow(0 0 5px #ff00c8);
+            }
+
+        .bio {
+            flex: 2 1 400px;
+        }
+
+            .bio h2 {
+                font-size: 1.8rem;
+                color: #00fff7;
+                text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #00fff7;
+                padding-bottom: 0.3rem;
+                letter-spacing: 1.2px;
+            }
+
+            .bio p {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                color: #ccc;
+                text-shadow: 0 0 3px #00fff7aa;
+            }
+
+        .section {
+            max-width: 1000px;
+            background: #121018dd;
+            margin: 1.5rem auto;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #ff00c8cc, inset 0 0 8px #00fff7cc;
+            color: #eee;
+        }
+
+            .section h2 {
+                font-size: 1.8rem;
+                color: #ff00c8;
+                margin-top: 0;
+                border-bottom: 2px solid #ff00c8;
+                padding-bottom: 0.3rem;
+                text-shadow: 0 0 5px #ff00c8, 0 0 10px #ff00c8;
+                letter-spacing: 1.1px;
+            }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+            ul li {
+                padding-left: 1.2rem;
+                margin-bottom: 0.8rem;
+                position: relative;
+                font-size: 1.1rem;
+                color: #ccc;
+                text-shadow: 0 0 2px #ff00c8aa;
+            }
+
+                ul li::before {
+                    content: '▸';
+                    position: absolute;
+                    left: 0;
+                    color: #00fff7;
+                    text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+                    font-weight: bold;
+                }
+
+                ul li strong {
+                    color: #ff00c8;
+                    text-shadow: 0 0 5px #ff00c8, 0 0 10px #ff00c8;
+                }
+
+        footer {
+            background: #0f0c29;
+            color: #ff00c8;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            font-weight: 600;
+            text-shadow: 0 0 5px #ff00c8, 0 0 10px #ff00c8;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .profile-pic,
+            .bio {
+                max-width: 100%;
+                flex: none;
+                margin: 0 auto;
+            }
+
+            .profile-pic {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Andres Fernando Rios Olave</h1>
+        <p>Ingeniero en Sistemas | Desarrollador Full Stack</p>
+    </header>
+
+    <div class="container">
+        <div class="profile-pic">
+            <img src="kiscvcb0pbm91.jpg" alt="Foto local" />
+        </div>
+        <div class="bio">
+            <h2>Biografía</h2>
+            <p>
+                Soy un ingeniero en sistemas apasionado por la tecnología, el desarrollo de software y la resolución de problemas complejos.
+                Cuento con más de 5 años de experiencia en desarrollo web, aplicaciones móviles y soluciones en la nube.
+                Me gusta trabajar en equipo, aprender constantemente y construir productos de alto impacto.
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>Desarrollo web frontend y backend</li>
+            <li>Diseño de bases de datos relacionales y NoSQL</li>
+            <li>Gestión de proyectos ágiles (Scrum, Kanban)</li>
+            <li>Testing y control de calidad (unitarios, integración)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Tecnologías</h2>
+        <ul>
+            <li>Lenguajes: JavaScript, Python, Java, C#</li>
+            <li>Frameworks: React, Angular, Node.js, Django, .NET</li>
+            <li>Bases de datos: MySQL, PostgreSQL, MongoDB</li>
+            <li>Herramientas: Git, Docker, Jenkins, AWS, Azure</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Proyectos Destacados</h2>
+        <ul>
+            <li><strong>Sistema de gestión académica:</strong> Plataforma web para universidades con control de calificaciones y asistencia.</li>
+            <li><strong>App móvil de reservas:</strong> Aplicación híbrida para reservar servicios en tiempo real.</li>
+            <li><strong>Dashboard financiero:</strong> Sistema de visualización de métricas financieras usando React y D3.js.</li>
+        </ul>
+    </div>
+
+    <footer>
+        © 2025 AndyTT - Todos los derechos reservados
+    </footer>
+
+</body>
+</html>
