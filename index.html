@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #e0ffe0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    /* Tarjetas */
+    .card {
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid #22d3ee;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+      position: relative;
+      z-index: 1;
+      transition: all .3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(34,211,238,.6);
+    }
+
+    .title {
+      color: #22d3ee;
+      font-weight: bold;
+      text-shadow: 0 0 5px #22d3ee;
+    }
+    .tag {
+      background: rgba(250, 204, 21, 0.15);
+      border: 1px solid #facc15;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: #facc15;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tag:hover { background: rgba(250, 204, 21, 0.3); transform: scale(1.05); }
+
+    #tsparticles { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+    footer { margin-top: auto; padding: 1rem 0; }
+
+    /* Foto de perfil animado */
+    .profile-pic {
+      box-shadow: 0 0 15px rgba(34,211,238,.8);
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 15px rgba(34,211,238,.6); }
+      to   { box-shadow: 0 0 30px rgba(34,211,238,1); }
+    }
+
+    /* Acordeón */
+    .accordion-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .5s ease, padding .3s ease;
+    }
+    .accordion-panel.open {
+      max-height: 800px;
+      padding-top: 1rem;
+    }
+    .acc-btn { width:100%; display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.25rem 0 .75rem 0; cursor:pointer; border-bottom:1px solid rgba(34,211,238,.25); }
+    .acc-icon { width: 22px; height: 22px; transition: transform .25s ease; }
+    .acc-btn[aria-expanded="true"] .acc-icon{ transform: rotate(180deg); }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Fondo partículas -->
+  <div id="tsparticles"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 container mx-auto px-4 py-8 flex-grow">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold title">Mi Portafolio</h1>
+      <p class="text-lg text-yellow-400 mt-2">Estudiante de Ingeniería de Sistemas</p>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Sidebar -->
+      <aside class="space-y-6">
+        <div class="card text-center">
+          <img src="profile.jpg" alt="Foto de perfil"
+               class="w-32 h-32 rounded-full mx-auto border-4 border-cyan-400 object-cover hover:scale-105 transition-transform duration-300 profile-pic">
+          <h2 class="text-2xl title mt-3">Andres Fernado Rios</h2>
+          <p class="text-yellow-400">Estudiante de Ingeniería de Sistemas</p>
+        </div>
+
+        <div class="card">
+          <h2 class="text-2xl title mb-2">Descripcion</h2>
+          <p class="text-sm leading-relaxed text-gray-300">
+            Soy estudiante de Ingeniería de Sistemas con interés en redes, backend y ciberseguridad. 
+            Actualmente curso el 8 semestre y he participado en proyectos tanto académicos como personales. 
+            Me siento cómodo trabajando en Linux, administrando redes y explorando tecnologías como 
+            virtualización, Node.js y PostgreSQL.
+            También tengo bases en seguridad informática y metodologías ágiles, así como experiencia en 
+            trabajo en equipo y comunicación efectiva. Busco seguir creciendo en el desarrollo de soluciones 
+            web y la administración de infraestructuras seguras, mientras fortalezco mis habilidades técnicas 
+            y blandas.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 class="text-2xl title mb-2">Contacto</h2>
+          <ul class="space-y-2 text-gray-300">
+            <li><span class="text-yellow-400">📧</span> shawnspencer@disroot.org</li>
+            <li><span class="text-yellow-400">🌐</span> github.com/AndresR-67</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Secciones principales -->
+      <section class="md:col-span-2 space-y-8">
+        
+        <!-- Académico -->
+        <div class="card">
+          <button class="acc-btn" aria-expanded="false" aria-controls="academico-panel">
+            <h2 class="text-2xl title">Historial Académico</h2>
+            <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div id="academico-panel" class="accordion-panel">
+            <div class="overflow-x-auto">
+              <table id="academico-table" class="hidden w-full border-collapse text-sm"></table>
+            </div>
+            <ul id="academico-list" class="mt-3 space-y-2 hidden"></ul>
+          </div>
+        </div>
+
+        <!-- Laboral -->
+        
+        <div class="card">
+          <button class="acc-btn" aria-expanded="false" aria-controls="laboral-panel">
+            <h2 class="text-2xl title">Historial Laboral</h2>
+            <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div id="laboral-panel" class="accordion-panel">
+            <div class="overflow-x-auto">
+              <table id="laboral-table" class="hidden w-full border-collapse text-sm"></table>
+            </div>
+            <ul id="laboral-list" class="mt-3 space-y-2 hidden"></ul>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="card">
+          <h2 class="text-2xl title mb-2">Stack / Tecnologías</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">Linux</span>
+            <span class="tag">Redes</span>
+            <span class="tag">Virtualización</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <h3 class="text-lg title mt-6 mb-2">Skills Destacadas</h3>
+          <div id="skills-tags" class="flex flex-wrap gap-2"></div>
+          <ul id="skills-list" class="mt-3 space-y-2 hidden"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="text-center text-gray-500 text-sm mt-10 relative z-10">
+    © 2025 Andres Fernado Rios. Todos los derechos reservados.
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Acordeón
+    document.querySelectorAll('.acc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+        panel.classList.toggle('open');
+      });
+    });
+
+    // --- Carga JSON dinámico ---
+    fetch("data.json")
+      .then(res => res.json())
+      .then(data => {
+        // Skills
+        const skills = Array.isArray(data.skills) ? data.skills : [];
+        const skillsTags = document.getElementById("skills-tags");
+        const skillsList = document.getElementById("skills-list");
+        if (skills.length) {
+          skills.forEach(skill => {
+            const tag = document.createElement("span");
+            tag.className = "tag";
+            tag.textContent = skill;
+            tag.onclick = () => skillsList.classList.toggle("hidden");
+            skillsTags.appendChild(tag);
+
+            const li = document.createElement("li");
+            li.textContent = skill;
+            skillsList.appendChild(li);
+          });
+        }
+
+        // Académico
+        renderFlexSection({
+          items: Array.isArray(data.academico) ? data.academico : [],
+          tableId: 'academico-table',
+          listId: 'academico-list',
+          header: ['Año', 'Institución', 'Título'],
+          mapObj: (obj) => [obj.anio || obj.año || obj.year || '', obj.institucion || obj.institución || '', obj.titulo || obj.título || '']
+        });
+
+        // Laboral
+        renderFlexSection({
+          items: Array.isArray(data.laboral) ? data.laboral : [],
+          tableId: 'laboral-table',
+          listId: 'laboral-list',
+          header: ['Año', 'Empresa', 'Cargo'],
+          mapObj: (obj) => [obj.anio || obj.año || obj.year || '', obj.empresa || obj.company || '', obj.cargo || obj.role || '']
+        });
+      })
+      .catch(err => console.error("Error cargando JSON:", err));
+
+    function renderFlexSection(opts){
+      const { items, tableId, listId, header, mapObj } = opts;
+      const tbl = document.getElementById(tableId);
+      const ul  = document.getElementById(listId);
+
+      if (items.length && typeof items[0] === 'object') {
+        const thead = document.createElement('thead');
+        const trh = document.createElement('tr');
+        header.forEach(h => {
+          const th = document.createElement('th');
+          th.textContent = h;
+          th.className = 'border border-cyan-300/20 bg-cyan-900/20 text-cyan-300 text-left px-3 py-2';
+          trh.appendChild(th);
+        });
+        thead.appendChild(trh);
+
+        const tbody = document.createElement('tbody');
+        items.forEach(obj => {
+          const tr = document.createElement('tr');
+          mapObj(obj).forEach(val => {
+            const td = document.createElement('td');
+            td.textContent = String(val || '—');
+            td.className = 'border border-cyan-300/20 px-3 py-2';
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+
+        tbl.appendChild(thead); tbl.appendChild(tbody);
+        tbl.classList.remove('hidden');
+      } else if (items.length) {
+        items.forEach(txt => {
+          const li = document.createElement('li');
+          li.textContent = String(txt);
+          li.className = 'relative pl-5 before:content-["▹"] before:absolute before:left-0 before:text-yellow-400';
+          ul.appendChild(li);
+        });
+        ul.classList.remove('hidden');
+      }
+    }
+
+    // Partículas
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "transparent" } },
+      fpsLimit: 60,
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+        modes: { repulse: { distance: 80, duration: 0.4 } },
+      },
+      particles: {
+        color: { value: ["#22d3ee", "#facc15"] },
+        links: { color: "#22d3ee", distance: 120, enable: true, opacity: 0.25, width: 1 },
+        move: { enable: true, speed: 0.6, outModes: { default: "out" } },
+        number: { value: 80, density: { enable: true, area: 900 } },
+        opacity: { value: 0.4 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 3 } },
+      },
+      detectRetina: true,
+    });
+  </script>
+</body>
+</html>

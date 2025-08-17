@@ -1,0 +1,23 @@
+{
+  "academico": [
+    { "anio": "2021", "institucion": "Institución educativa Siete de Agosto", "titulo": "Bachillerato" },
+    { "anio": "2021", "institucion": "SENA", "titulo": "Técnico en Sistemas" }
+  ],
+  "laboral": [
+    { "anio": "2025", "empresa": "URBAN", "cargo": "Desarrollador" },
+    { "anio": "2024", "empresa": "TDX", "cargo": "Desarrollador" },
+    { "anio": "2025", "empresa": "Jago", "cargo": "Soporte Técnico" }
+  ],
+  "skills": [
+    "Redes y Telecomunicaciones - Intermedio",
+    "Backend con Node.js y PostgreSQL - Basico",
+    "Frontend básico con React",
+    "Virtualización -Intermedio",
+    "Seguridad informatica - Basica",
+    "Metodologías ágiles: Scrum/Kanban (conocimiento práctico)",
+    "Idiomas: Español (Nativo), Inglés (B2)",
+    "Habilidades de comunicación y trabajo en equipo",
+    "Proactividad y aprendizaje autónomo",
+    "Adaptabilidad al cambio"
+  ]
+}
