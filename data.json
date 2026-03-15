@@ -1,23 +1,81 @@
 {
   "academico": [
-    { "anio": "2021", "institucion": "Institución educativa Siete de Agosto", "titulo": "Bachillerato" },
-    { "anio": "2021", "institucion": "SENA", "titulo": "Técnico en Sistemas" }
+    {
+      "anio": "2021",
+      "institucion": "Institución Educativa Siete de Agosto",
+      "titulo": "Bachillerato"
+    },
+    {
+      "anio": "2021",
+      "institucion": "SENA",
+      "titulo": "Técnico en Sistemas"
+    },
+    {
+      "anio": "2024",
+      "institucion": "Cisco Networking Academy",
+      "titulo": "Introduction to Cybersecurity",
+      "tipo": "Curso"
+    },
+    {
+      "anio": "2024",
+      "institucion": "Cisco Networking Academy",
+      "titulo": "Networking Basics",
+      "tipo": "Curso"
+    }
   ],
-  "laboral": [
-    { "anio": "2025", "empresa": "URBAN", "cargo": "Desarrollador" },
-    { "anio": "2024", "empresa": "TDX", "cargo": "Desarrollador" },
-    { "anio": "2025", "empresa": "Jago", "cargo": "Soporte Técnico" }
+  "proyectos": [
+    {
+      "anio": "2025",
+      "nombre": "Simulación de red empresarial",
+      "descripcion": "Diseño y simulación de una red LAN empresarial utilizando Cisco Packet Tracer.",
+      "detalles": [
+        "Configuración de VLANs",
+        "Implementación de servidor DHCP",
+        "Direccionamiento IP y subredes",
+        "Pruebas de conectividad entre dispositivos"
+      ]
+    },
+    {
+      "anio": "2025",
+      "nombre": "Gestor de clientes y deudas",
+      "descripcion": "Sistema de gestión orientado a pequeños negocios para el control de clientes, deudas y abonos.",
+      "detalles": [
+        "Registro y gestión de clientes",
+        "Control de deudas y abonos",
+        "Organización de información en base de datos"
+      ]
+    },
+    {
+      "anio": "2025",
+      "nombre": "Cybermonkey",
+      "descripcion": "Aplicación para la organización de tareas, exámenes y actividades académicas con elementos de gamificación.",
+      "detalles": [
+        "Gestión de tareas y fechas de entrega",
+        "Seguimiento del progreso del usuario",
+        "Organización de actividades académicas"
+      ]
+    },
+    {
+      "anio": "2025",
+      "nombre": "Craveon",
+      "descripcion": "Red social orientada a la gastronomía para compartir recetas e interactuar con otros usuarios.",
+      "detalles": [
+        "Publicación y gestión de recetas",
+        "Interacción entre usuarios",
+        "Sistema de mensajería"
+      ]
+    }
   ],
   "skills": [
-    "Redes y Telecomunicaciones - Intermedio",
-    "Backend con Node.js y PostgreSQL - Basico",
-    "Frontend básico con React",
-    "Virtualización -Intermedio",
-    "Seguridad informatica - Basica",
-    "Metodologías ágiles: Scrum/Kanban (conocimiento práctico)",
-    "Idiomas: Español (Nativo), Inglés (B2)",
-    "Habilidades de comunicación y trabajo en equipo",
-    "Proactividad y aprendizaje autónomo",
-    "Adaptabilidad al cambio"
+    "Fundamentos de redes (TCP/IP, direccionamiento IP)",
+    "Configuración básica de VLAN y DHCP",
+    "Simulación de redes con Cisco Packet Tracer",
+    "Administración básica de sistemas Linux",
+    "Manejo de terminal y herramientas de sistema",
+    "Diagnóstico y resolución de problemas técnicos",
+    "Fundamentos de programación (JavaScript)",
+    "Control de versiones con Git",
+    "Seguridad informática - fundamentos",
+    "Idiomas: Español (Nativo), Inglés (A2)"
   ]
 }
