@@ -195,50 +195,51 @@
   });
 
   // --- Carga JSON dinámico ---
-  fetch("data.json")
-    .then(res => res.json())
-    .then(data => {
-      // Skills
-      const skills = Array.isArray(data.skills) ? data.skills : [];
-      const skillsTags = document.getElementById("skills-tags");
-      const skillsList = document.getElementById("skills-list");
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
 
-      if (skills.length) {
-        
-        if (!skillsList.hasChildNodes()) {
-          
-            skills.forEach(skill => {
-            const tag = document.createElement("span");
-            tag.className = "tag";
-            tag.textContent = skill;
-            skillsTags.appendChild(tag);
-            });
+    // Skills
+    const skills = Array.isArray(data.skills) ? data.skills : [];
+    const skillsTags = document.getElementById("skills-tags");
 
-        }
-      // Académico
-      renderFlexSection({
-        items: Array.isArray(data.academico) ? data.academico : [],
-        tableId: 'academico-table',
-        listId: 'academico-list',
-        header: ['Año', 'Institución', 'Título'],
-        mapObj: (obj) => [obj.anio || obj.año || obj.year || '', obj.institucion || obj.institución || '', obj.titulo || obj.título || '']
+    if (skills.length) {
+      skills.forEach(skill => {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = skill;
+        skillsTags.appendChild(tag);
       });
-
-      // Proyectos
-renderFlexSection({
-  items: Array.isArray(data.proyectos) ? data.proyectos : [],
-  tableId: 'proyectos-table',
-  listId: 'proyectos-list',
-  header: ['Año', 'Proyecto', 'Descripción'],
-  mapObj: (obj) => [
-    obj.anio || obj.año || obj.year || '',
-    obj.nombre || '',
-    obj.descripcion || ''
-  ]
-});
     }
-    })
-    .catch(err => console.error("Error cargando JSON:", err));
+
+    // Académico
+    renderFlexSection({
+      items: Array.isArray(data.academico) ? data.academico : [],
+      tableId: 'academico-table',
+      listId: 'academico-list',
+      header: ['Año', 'Institución', 'Título'],
+      mapObj: (obj) => [
+        obj.anio || obj.año || obj.year || '',
+        obj.institucion || obj.institución || '',
+        obj.titulo || obj.título || ''
+      ]
+    });
+
+    // Proyectos
+    renderFlexSection({
+      items: Array.isArray(data.proyectos) ? data.proyectos : [],
+      tableId: 'proyectos-table',
+      listId: 'proyectos-list',
+      header: ['Año', 'Proyecto', 'Descripción'],
+      mapObj: (obj) => [
+        obj.anio || obj.año || obj.year || '',
+        obj.nombre || '',
+        obj.descripcion || ''
+      ]
+    });
+
+  })
+  .catch(err => console.error("Error cargando JSON:", err));
 
   function renderFlexSection(opts) {
     const { items, tableId, listId, header, mapObj } = opts;
