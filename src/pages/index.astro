@@ -1,0 +1,342 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, GITHUB_URL } from '../consts';
+ 
+// Áreas de enfoque que aparecen en el hero
+const focus = [
+  { icon: '⬡', label: 'Redes & Routing', desc: 'VLANs, NAT, OSPF, STP — simulación y troubleshooting en entornos Cisco.' },
+  { icon: '🔒', label: 'Seguridad perimetral', desc: 'Firewalls, iptables, análisis de tráfico con tcpdump y Wireshark.' },
+  { icon: '🐧', label: 'Linux & Bash', desc: 'Administración de sistemas, scripting de automatización y hardening básico.' },
+];
+ 
+// Vista rápida de tecnologías
+const stack = [
+  'Cisco Packet Tracer', 'Linux (Debian/CentOS/Fedora/Arch)', 'Bash', 'iptables',
+  'tcpdump', 'Wireshark', 'Active Directory', 'SSH', 'DNS / DHCP',
+];
+---
+ 
+<!doctype html>
+<html lang="es">
+<head>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+ 
+<body>
+  <Header />
+ 
+  <main>
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content stagger">
+          <p class="section-label">Portafolio</p>
+ 
+          <h1>
+            Hola, soy <br />
+            <span class="name-highlight">Andrés Ríos</span>
+          </h1>
+ 
+          <p class="hero-subtitle">
+            Estudiante de Ingeniería en Sistemas con foco en redes, seguridad perimetral y automatización Linux.
+            Resuelvo problemas de infraestructura desde la capa 2 hasta la capa 7.
+          </p>
+ 
+          <div class="hero-cta">
+            <a href="/about" class="btn btn--primary">Sobre mí</a>
+            <a href="/blog" class="btn btn--ghost">Ver blog</a>
+            <a href={GITHUB_URL} target="_blank" rel="noopener" class="btn btn--ghost">
+              GitHub ↗
+            </a>
+          </div>
+ 
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Preparándome para CCST Networking · Disponible para prácticas
+          </div>
+        </div>
+ 
+        <!-- Terminal decorativo -->
+        <div class="terminal-card animate-fade-up">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">andres@portfolio:~</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="t-prompt">$</span> whoami</p>
+            <p class="t-out">andres_rios — Network & Linux Enthusiast</p>
+            <br/>
+            <p><span class="t-prompt">$</span> cat skills.txt</p>
+            <p class="t-out">→ Redes: VLANs · Routing · NAT · STP</p>
+            <p class="t-out">→ Seguridad: Firewall · tcpdump · Hardening</p>
+            <p class="t-out">→ Linux: Bash · DNS/DHCP · Active Directory</p>
+            <br/>
+            <p><span class="t-prompt">$</span> ping -c 1 nuevos-proyectos.local</p>
+            <p class="t-out">64 bytes icmp_seq=1 ttl=64 time=0.4 ms</p>
+            <p><span class="t-cursor">█</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ═══════════════ ÁREAS DE ENFOQUE ═══════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Qué hago</p>
+        <h2>Áreas de enfoque</h2>
+ 
+        <div class="focus-grid stagger">
+          {focus.map(item => (
+            <div class="card focus-card">
+              <span class="focus-icon">{item.icon}</span>
+              <h3>{item.label}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ═══════════════ STACK ═══════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Herramientas</p>
+        <h2>Stack tecnológico</h2>
+ 
+        <div class="stack-grid">
+          {stack.map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ═══════════════ CTA BLOG ═══════════════ -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <p class="section-label">Últimas notas</p>
+          <h2>Blog técnico</h2>
+          <p>
+            Documentación de labs, troubleshooting real y guías de configuración.
+            Sin tutoriales genéricos.
+          </p>
+          <a href="/blog" class="btn btn--primary" style="margin-top:1.5rem">Ver entradas →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+ 
+  <Footer />
+</body>
+</html>
+ 
+<style>
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  padding: 5rem 0 3rem;
+}
+ 
+.hero > .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+ 
+.hero-content { display: flex; flex-direction: column; gap: 1.25rem; }
+ 
+.name-highlight {
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+ 
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+ 
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+ 
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+ 
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+ 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+ 
+/* ── Terminal ────────────────────────────── */
+.terminal-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  animation-delay: 0.2s;
+}
+ 
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+ 
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green  { background: #27c93f; }
+ 
+.terminal-title {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+ 
+.terminal-body {
+  padding: 1.25rem 1.5rem;
+  line-height: 1.9;
+}
+ 
+.t-prompt { color: var(--accent-green); margin-right: 0.4rem; }
+.t-out    { color: var(--text-secondary); padding-left: 1rem; }
+.t-cursor {
+  color: var(--accent-green);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+ 
+/* ── Buttons ─────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+}
+ 
+.btn--primary {
+  background: var(--accent-green);
+  color: #0d1117;
+  border-color: var(--accent-green);
+}
+.btn--primary:hover {
+  background: #5dea74;
+  color: #0d1117;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(57,211,83,0.3);
+}
+ 
+.btn--ghost {
+  color: var(--text-secondary);
+  border-color: var(--border);
+  background: transparent;
+}
+.btn--ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+  background: var(--accent-green-dim);
+}
+ 
+/* ── Focus grid ──────────────────────────── */
+.section {
+  padding: 4rem 0;
+}
+ 
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+ 
+.focus-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+ 
+.focus-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+ 
+.focus-card h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+ 
+.focus-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  max-width: 100%;
+}
+ 
+/* ── Stack ───────────────────────────────── */
+.stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+ 
+/* ── CTA Section ─────────────────────────── */
+.cta-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-green);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+}
+ 
+.cta-box h2 { margin-bottom: 0.75rem; }
+ 
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 768px) {
+  .hero > .container {
+    grid-template-columns: 1fr;
+  }
+  .terminal-card {
+    display: none; /* se oculta en móvil para no saturar */
+  }
+}
+</style>

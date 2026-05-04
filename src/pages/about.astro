@@ -1,0 +1,446 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, GITHUB_URL, LINKEDIN_URL } from '../consts';
+
+const certifications = [
+  {
+    year: '2024',
+    title: 'Networking Basics',
+    org: 'Cisco Networking Academy',
+    type: 'Curso',
+    color: 'blue',
+  },
+  {
+    year: '2024',
+    title: 'Introduction to Cybersecurity',
+    org: 'Cisco Networking Academy',
+    type: 'Curso',
+    color: 'orange',
+  },
+  {
+    year: '2021',
+    title: 'Técnico en Sistemas',
+    org: 'SENA',
+    type: 'Título',
+    color: 'green',
+  },
+];
+
+const currentFocus = [
+  'Preparación CCST Networking (Cisco Certified Support Technician)',
+  'Profundizando en segmentación de redes con VLANs y trunking',
+  'Automatización de tareas de administración Linux con Bash',
+  'Labs de troubleshooting en Cisco Packet Tracer',
+];
+
+const skills = {
+  'Redes': ['Cisco IOS', 'VLANs', 'STP', 'NAT/PAT', 'OSPF básico', 'Packet Tracer'],
+  'Seguridad': ['iptables', 'tcpdump', 'Wireshark', 'hardening básico', 'análisis de tráfico'],
+  'Linux': ['Debian', 'CentOS', 'Fedora', 'Arch' 'Bash scripting', 'systemd', 'SSH', 'cron'],
+  'Servicios': ['DNS', 'DHCP', 'Active Directory', 'configuración de servidores'],
+};
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <BaseHead title={`Sobre mí · ${SITE_TITLE}`} description="Andrés Ríos — estudiante de Ingeniería en Sistemas, enfocado en redes, seguridad y Linux." />
+</head>
+
+<body>
+  <Header />
+
+  <main>
+    <div class="container about-layout">
+
+      <!-- ═══════ COLUMNA PRINCIPAL ═══════ -->
+      <article class="about-main stagger">
+
+        <!-- Intro -->
+        <header class="about-header">
+          <p class="section-label">Sobre mí</p>
+          <h1>Andrés Ríos</h1>
+          <p class="role-line">Network & Linux Enthusiast · Ing. Sistemas (en curso)</p>
+        </header>
+
+        <!-- Descripción -->
+        <section class="about-block">
+          <h2>Qué hago</h2>
+          <p>
+            Trabajo con redes desde la planificación hasta el troubleshooting: segmentación con VLANs,
+            configuración de routing, NAT y análisis de tráfico con <code>tcpdump</code> y Wireshark.
+            En Linux me muevo cómodo administrando servicios, escribiendo scripts de automatización
+            en Bash y aplicando hardening básico a sistemas.
+          </p>
+          <p>
+            También he trabajado con Active Directory y configuración básica de servidores Windows,
+            lo que me da una visión más completa de entornos mixtos reales.
+          </p>
+        </section>
+
+        <!-- Qué estoy aprendiendo -->
+        <section class="about-block">
+          <h2>Qué estoy aprendiendo ahora</h2>
+          <ul class="focus-list">
+            {currentFocus.map(item => (
+              <li>
+                <span class="li-arrow">→</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Qué tipo de problemas me interesan -->
+        <section class="about-block">
+          <h2>Qué tipo de problemas me interesa resolver</h2>
+          <p>
+            Me atrae la parte donde la red deja de funcionar y hay que encontrar por qué:
+            un loop de switching no detectado, una ruta mal redistribuida, tráfico que debería
+            estar bloqueado y no lo está. Problemas con evidencia concreta, donde un
+            <code>ping</code>, un <code>traceroute</code> o una captura de paquetes te dice
+            exactamente qué salió mal.
+          </p>
+          <p>
+            A largo plazo me interesa la intersección entre infraestructura de red y seguridad:
+            firewalls, IDS/IPS, segmentación para aislar incidentes.
+          </p>
+        </section>
+
+        <!-- Skills -->
+        <section class="about-block">
+          <h2>Habilidades técnicas</h2>
+          <div class="skills-grid">
+            {Object.entries(skills).map(([area, items]) => (
+              <div class="skill-group">
+                <h3>{area}</h3>
+                <div class="tag-list">
+                  {items.map(s => <span class="tag">{s}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </article>
+
+      <!-- ═══════ SIDEBAR ═══════ -->
+      <aside class="about-sidebar stagger">
+
+        <!-- Formación -->
+        <div class="sidebar-card">
+          <p class="section-label">Formación</p>
+          <ul class="cert-list">
+            {certifications.map(cert => (
+              <li class="cert-item">
+                <div class="cert-year">{cert.year}</div>
+                <div class="cert-info">
+                  <strong>{cert.title}</strong>
+                  <span class="cert-org">{cert.org}</span>
+                  <span class={`tag tag--${cert.color}`}>{cert.type}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p class="cert-note">
+            Los cursos de Cisco son autofinanciados y forman parte de la ruta oficial
+            hacia la certificación CCNA.
+          </p>
+        </div>
+
+        <!-- Status -->
+        <div class="sidebar-card">
+          <p class="section-label">Estado</p>
+          <ul class="status-list">
+            <li>
+              <span class="status-dot"></span>
+              Estudiante activo · Ing. Sistemas
+            </li>
+            <li>
+              <span class="status-dot dot--blue"></span>
+              En camino a CCST Networking
+            </li>
+            <li>
+              <span class="status-dot dot--orange"></span>
+              Buscando primera práctica / pasantía
+            </li>
+          </ul>
+        </div>
+
+        <!-- Links -->
+        <div class="sidebar-card">
+          <p class="section-label">Contacto</p>
+          <div class="contact-links">
+            <a href={GITHUB_URL} target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-icon">⌥</span> GitHub
+            </a>
+            {LINKEDIN_URL && LINKEDIN_URL !== 'https://linkedin.com/in/' && (
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener" class="contact-item">
+                <span class="contact-icon">◈</span> LinkedIn
+              </a>
+            )}
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</body>
+</html>
+
+<style>
+/* ── Layout ──────────────────────────────── */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+  align-items: start;
+}
+
+/* ── Header ──────────────────────────────── */
+.about-header {
+  margin-bottom: 2.5rem;
+}
+
+.about-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.role-line {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 100%;
+}
+
+/* ── Content blocks ──────────────────────── */
+.about-block {
+  margin-bottom: 2.5rem;
+}
+
+.about-block h2 {
+  font-size: 1.05rem;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-block p {
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 100%;
+}
+
+/* ── Focus list ──────────────────────────── */
+.focus-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.focus-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.li-arrow {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+/* ── Skills grid ─────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.skill-group h3 {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ── Sidebar ─────────────────────────────── */
+.about-sidebar {
+  position: sticky;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sidebar-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.sidebar-card > .section-label {
+  margin-bottom: 1rem;
+}
+
+/* ── Cert list ───────────────────────────── */
+.cert-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cert-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.cert-year {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding-top: 0.15rem;
+  flex-shrink: 0;
+  width: 30px;
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cert-info strong {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cert-org {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+}
+
+.cert-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 100%;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── Status list ─────────────────────────── */
+.status-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.status-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 5px var(--accent-green);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.dot--blue {
+  background: var(--accent-blue);
+  box-shadow: 0 0 5px var(--accent-blue);
+}
+
+.status-dot.dot--orange {
+  background: var(--accent-orange);
+  box-shadow: 0 0 5px var(--accent-orange);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Contact ─────────────────────────────── */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.contact-item:hover {
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+  background: var(--accent-green-dim);
+}
+
+.contact-icon {
+  color: var(--accent-green);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

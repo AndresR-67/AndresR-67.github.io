@@ -1,0 +1,21 @@
+---
+import { GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-left">
+      © {year} <strong>{SITE_TITLE}</strong> — Construido con Astro &amp; mucho <code>ping</code>.
+    </p>
+
+    <div class="footer-links">
+      <a href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a>
+      {LINKEDIN_URL && LINKEDIN_URL !== 'https://linkedin.com/in/' &&
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+      }
+      <a href="/blog">Blog</a>
+    </div>
+  </div>
+</footer>
