@@ -12,8 +12,38 @@ import { SITE_TITLE } from '../consts';
       <a href="/">Inicio</a>
       <a href="/about">Sobre mí</a>
       <a href="/blog">Blog</a>
-      <!-- para la futura pagina de proyectos -->
-      <!-- <a href="/projects">Proyectos</a> -->
     </nav>
   </div>
 </header>
+
+<style>
+  header {
+    border-bottom: 1px solid #1f2937;
+  }
+
+  .header-inner {
+    max-width: 900px;          
+    margin: 0 auto;            
+    padding: 1rem 1.5rem;      
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.8;
+  }
+
+  nav a:hover {
+    opacity: 1;
+  }
+</style>
